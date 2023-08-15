@@ -1,0 +1,132 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  /*padding-top: 40px;
+  padding-bottom: 40px;*/
+  background-color: #F7F7F7;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: lightgray;
+  opacity: 0.3;
+  border:1px solid gray;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-primary{
+  background-color: #1BCF89 !important;
+  border:none;
+}
+  /* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+    margin-top: 20px;
+}
+
+/* style icon */
+.inner-addon .ico {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .ico  { 
+  left:  0px;
+  color: #b9f5dd;
+  font-size: 25px;
+}
+.right-addon .ico{ right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+.h-gray{ color: gray; }
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  padding-left: 30px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  padding-left: 30px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  padding-left: 30px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  padding-left: 30px;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+#logo2{
+  width: 60% !important;
+    margin-right: 70px !important;
+    margin-left: 0px !important;
+}  
+#myBtnup{
+        width: 82% !important;
+    right: 33px !important;
+    top: 120px !important;
+    padding-left: 126px !important;
+    padding-right: 126px !important;
+}
+#myBtndown{
+        width: 82% !important;
+    right: 33px !important;
+    bottom: 2px !important;
+    padding-left: 126px !important;
+    padding-right: 126px !important;
+}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+#logo2{
+  width: 27% !important;
+    margin-right: 216px !important;
+    margin-left: 0px !important;
+}  
+#myBtnup{
+        width: 47% !important;
+    right: 170px !important;
+    top: 120px !important;
+    padding-left: 126px !important;
+    padding-right: 126px !important;
+}
+#myBtndown{
+        width: 47% !important;
+    right: 170px !important;
+    bottom: 2px !important;
+    padding-left: 126px !important;
+    padding-right: 126px !important;
+}
+}

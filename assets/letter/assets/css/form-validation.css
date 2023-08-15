@@ -1,0 +1,62 @@
+
+body{
+	font-family: 'https://fonts.googleapis.com/css?family=Roboto';
+	font-family: 'Roboto', sans-serif;
+}
+.container {
+  max-width: 960px;
+}
+.tab-content{margin-bottom: 50px !important;}
+.nav-tabs{border-bottom: none !important;}
+p{color: gray !important; font-size: 14px; font-weight: 800;}
+        .active{background-color: #1BCF89 !important; color: white !important;}
+        .card{box-shadow: 0 8px 6px -6px black;}
+        i{color: #1BCF89 !important; font-size: 20px !important;}
+        footer{position: fixed; width: 100%; margin-top: 138px !important; 
+ padding-bottom: 14px !important; padding-top: 21px !important; border: 1px solid gray; background-color: white;}
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+.border-top-gray { border-top-color: #adb5bd; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-condensed { line-height: 1.25; }
+#note8-img-up{display: none !important;}
+
+.input-group-text{background: white;}
+.form-control:disabled, .form-control[readonly]{background: white;}
+.box{width: 100%; height: 200px; border: 1px solid gray;}
+.owl-note{width: 100%; height: auto;cursor: pointer;}
+.note{width: 80%; height: auto;}
+.owl-note-4{width: 10%; height: auto;}
+.note-4{width: 60%; height: auto;}
+.note-6{width: 100%; height: 200px;}
+.note-w{width: 100%; height: 300px;}
+.arrow-step-4{width: 100%; height: auto;}
+#arrowleft_div{padding-top: 74px;}
+#home-center{color: gray; text-align: center; margin-left: 115px;}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+#arrowleft_div{padding-top: 0px !important;}
+#note6_img,#note7_img,#note8_img{width: 100% !important;}
+#note4_img{width: 100% !important; height: 200px !important;}
+#note8-img-up{display: block !important;}
+#note8-img-mid{display: none !important;}
+}
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) { 
+#home-center{margin-left: 130px !important; }
+.pt-5,.py-5{
+	padding-top: 1rem !important;
+	padding-bottom: 0rem !important;
+}
+}
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) { 
+#home-center{margin-left: 275px !important; }
+.pt-5,.py-5{
+	padding-top: 1rem !important;
+	padding-bottom: 0rem !important;
+}
+}
