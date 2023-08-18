@@ -1,8 +1,8 @@
 <?php
-/* @var $this CustomerController */
+/* @var $this DeviceController */
 
 $this->breadcrumbs=array(
-	'Customer',
+	'Device',
 );
 ?>
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>

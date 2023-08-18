@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends Controller
+class DeviceController extends Controller
 {
 	public function actionAdd()
 	{

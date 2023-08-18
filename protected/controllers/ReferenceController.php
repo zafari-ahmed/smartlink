@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends Controller
+class ReferenceController extends Controller
 {
 	public function actionAdd()
 	{

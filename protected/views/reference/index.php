@@ -1,8 +1,8 @@
 <?php
-/* @var $this CustomerController */
+/* @var $this ReferenceController */
 
 $this->breadcrumbs=array(
-	'Customer',
+	'Reference',
 );
 ?>
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>

@@ -286,7 +286,42 @@
                         <li>
                             <a href="<?php echo Yii::app()->baseUrl.'/dashboard'?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Customers<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/customer'?>">Manage Customer</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/customer/add'?>">New Customer</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> References<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/reference'?>">Manage References</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/reference/add'?>">New Reference</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> Devices<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/device'?>">Manage Devices</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo Yii::app()->baseUrl.'/device/add'?>">New Devices</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         
                     </ul>
                 </div>

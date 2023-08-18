@@ -2,7 +2,8 @@
 /* @var $this CustomerController */
 
 $this->breadcrumbs=array(
-	'Customer',
+	'Customer'=>array('/customer'),
+	'Add',
 );
 ?>
 <h1><?php echo $this->id . '/' . $this->action->id; ?></h1>
