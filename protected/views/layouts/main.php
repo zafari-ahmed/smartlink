@@ -440,12 +440,8 @@
         $('#dataTables').DataTable({
             iDisplayLength : 50,
             responsive: true,
-            aaSorting: [],
-            aoColumnDefs: [
-                { "bSearchable": false, "aTargets": [ 0 ] }
-            ],
             lengthMenu: [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-            order: [[ 0, "desc" ]]
+            order: [[ 0, "desc" ]],
         });
 
         $('#sizeTable').DataTable({
