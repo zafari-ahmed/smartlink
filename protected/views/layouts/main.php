@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <link rel="icon" type="image/x-icon" href="<?php echo Yii::app()->baseUrl?>//images/favicon.ico">
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +67,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?php echo Yii::app()->baseUrl?>/dashboard">Smart Link</a>
+                <a class="navbar-brand" href="<?php echo Yii::app()->baseUrl?>/dashboard"><img src="<?php echo Yii::app()->baseUrl?>/images/bgFullMain.png" style="width: 30%;margin-top: -3%;"></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -335,82 +336,7 @@
             <?php echo $content?>
         </div>
         <!-- /#page-wrapper -->
-<!-- Modal -->
-<div class="modal fade" id="searchList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="    width: 50%;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Search Result for block # <span class="blockText"></span></h4>
-            </div>
-            <div class="modal-body">
-                <div class="">
-                    <table class="table table-striped table-bordered table-hover" id="dataTabless">
-                        <thead>
-                            <tr>
-                                <!-- <th>#</th> -->
-                                <th>Block #</th>
-                                <th>Plot #</th>
-                                <th>Size</th>
-                                <th>Category</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="searchListData">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save</button> -->
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
 
-
-
-<!-- Modal -->
-<div class="modal fade" id="searchList-transaction" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="    width: 50%;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Search Result for Transaction # <span class="blockText"></span></h4>
-            </div>
-            <div class="modal-body">
-                <div class="">
-                    <table class="table table-striped table-bordered table-hover" id="dataTabless-transaction">
-                        <thead>
-                            <tr>
-                                <!-- <th>#</th> -->
-                                <th>Trans. #</th>
-                                <th>Block / Plot</th>
-                                <th>Amount</th>
-                                <th>Trans. Type</th>
-                                <th>Date</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="searchListData-transaction">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <!-- <button type="button" class="btn btn-primary">Save</button> -->
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
     </div>
     <!-- /#wrapper -->
 
