@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <link rel="icon" type="image/x-icon" href="<?php echo Yii::app()->baseUrl?>//images/favicon.ico">
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
