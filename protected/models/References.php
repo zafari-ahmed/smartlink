@@ -56,6 +56,7 @@ class References extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'legalType' => array(self::BELONGS_TO, 'LegalTypes', 'legal_type_id'),
 		);
 	}
 

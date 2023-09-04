@@ -4,7 +4,8 @@ class ReferenceController extends Controller
 {
 	public function actionAdd()
 	{
-		$this->render('add');
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$this->render('add',$data);
 	}
 
 	public function actionEdit()
@@ -14,12 +15,23 @@ class ReferenceController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+		$data['references'] = References::model()->findAll();
+		$this->render('index',$data);
 	}
 
 	public function actionSave()
 	{
-		$this->render('save');
+		if($_POST['account_name']){
+			$customer = new References;
+			$customer->attributes = $_POST;
+			$customer->status = 1;
+			$customer->devices_sold =  0;
+			$customer->created_at =  date('Y-m-d H:i:s');
+			$customer->updated_at =  date('Y-m-d H:i:s');
+			$customer->save(false);
+			Yii::app()->user->setFlash('success','Reference added successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/reference');
+		}
 	}
 
 	public function actionUpdate()

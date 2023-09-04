@@ -14,12 +14,23 @@ class DeviceController extends Controller
 
 	public function actionIndex()
 	{
-		$this->render('index');
+		$data['devices'] = Devices::model()->findAll(array('order'=>'id DESC'));
+		$this->render('index',$data);		
 	}
 
 	public function actionSave()
 	{
-		$this->render('save');
+
+		if($_POST['device_category']){
+			$Devices = new Devices;
+			$Devices->attributes = $_POST;
+			$Devices->status = 1;
+			$Devices->created_at =  date('Y-m-d');
+			$Devices->save(false);
+			Yii::app()->user->setFlash('success','Device added successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/device');
+		}
+
 	}
 
 	public function actionUpdate()
