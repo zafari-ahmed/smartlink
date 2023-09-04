@@ -4,27 +4,88 @@ class CustomerController extends Controller
 {
 	public function actionAdd()
 	{
-		$this->render('add');
+		$data['countries'] = Countries::model()->findAll();
+		$data['references'] = References::model()->findAll();
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$this->render('add',$data);
 	}
 
-	public function actionEdit()
+	public function actionEdit($id)
 	{
-		$this->render('edit');
+		$data['countries'] = Countries::model()->findAll();
+		$data['customer'] = Customers::model()->findByPk($id);
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$data['references'] = References::model()->findAll();
+		$this->render('edit',$data);
 	}
 
 	public function actionIndex()
 	{
-		$this->render('index');
+		$data['customers'] = Customers::model()->findAll();
+		$this->render('index',$data);
 	}
 
 	public function actionSave()
 	{
-		$this->render('save');
+		if($_POST['name']){
+			$customer = new Customers;
+			$customer->attributes = $_POST;
+			$customer->status = 1;
+			$customer->allowed_user = 1;
+			$customer->current_user = Yii::app()->session['userModel']['first_name'].' '.Yii::app()->session['userModel']['last_name'];
+			$customer->unique_reference_id =  !empty($_POST['unique_reference_id'])?$_POST['unique_reference_id']:NULL;
+			$customer->created_at =  date('Y-m-d H:i:s');
+			$customer->updated_at =  date('Y-m-d H:i:s');
+			$customer->save(false);
+			Yii::app()->user->setFlash('success','Customer added successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/customer');
+		}
+	}
+
+	public function actionCustomerdevice($id)
+	{
+		$data['customers'] = Customers::model()->findAll();
+		$data['devices'] = Devices::model()->findAll();
+		$data['customerDevices'] = CustomerDevices::model()->findAll("customer_id = ".$id);
+		$data['customer_id'] = $id;
+		$this->render('customer_devices',$data);
+	}
+
+	public function actionsaveDevices(){
+		if($_POST['device_id']){
+			$customer = new CustomerDevices;
+			$customer->attributes = $_POST;
+			$customer->status = 1;
+			$customer->created_at =  date('Y-m-d H:i:s');
+			$customer->save(false);
+			Yii::app()->user->setFlash('success','Customer Device added successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/customer/customerdevice/'.$_POST['customer_id']);
+		}
+	}
+
+	public function actiondeletecustomerdevice($id){
+		$customerDevice = CustomerDevices::model()->findByPk($id);
+		if($customerDevice){
+			$customerId = $customerDevice->customer_id;
+			$customerDevice->delete();
+			Yii::app()->user->setFlash('success','Customer Device deleted successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/customer/customerdevice/'.$customerId);
+		}
+
 	}
 
 	public function actionUpdate()
 	{
-		$this->render('update');
+		if($_POST['id']){
+			$customer = Customers::model()->findByPk($_POST['id']);
+			$customer->attributes = $_POST;
+			$customer->current_user = Yii::app()->session['userModel']['first_name'].' '.Yii::app()->session['userModel']['last_name'];
+			$customer->unique_reference_id =  substr(microtime(), 2, 5);;
+			$customer->updated_at =  date('Y-m-d H:i:s');
+			$customer->save(false);
+			Yii::app()->user->setFlash('success','Customer updated successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/customer');
+		}
 	}
 
 	// Uncomment the following methods and override them if needed

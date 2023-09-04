@@ -1,23 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "customer_devices".
+ * This is the model class for table "countries".
  *
- * The followings are the available columns in table 'customer_devices':
- * @property string $id
- * @property string $customer_id
- * @property string $device_id
- * @property integer $status
- * @property string $created_at
+ * The followings are the available columns in table 'countries':
+ * @property integer $id
+ * @property string $iso
+ * @property string $name
+ * @property string $nicename
+ * @property string $iso3
+ * @property integer $numcode
+ * @property integer $phonecode
  */
-class CustomerDevices extends CActiveRecord
+class Countries extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'customer_devices';
+		return 'countries';
 	}
 
 	/**
@@ -28,11 +30,14 @@ class CustomerDevices extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('customer_id, device_id, created_at', 'safe'),
+			array('iso, name, nicename, phonecode', 'required'),
+			array('numcode, phonecode', 'numerical', 'integerOnly'=>true),
+			array('iso', 'length', 'max'=>2),
+			array('name, nicename', 'length', 'max'=>80),
+			array('iso3', 'length', 'max'=>3),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, customer_id, device_id, status, created_at', 'safe', 'on'=>'search'),
+			array('id, iso, name, nicename, iso3, numcode, phonecode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -44,8 +49,6 @@ class CustomerDevices extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'customer' => array(self::BELONGS_TO, 'Customer', 'customer_id'),
-			'device' => array(self::BELONGS_TO, 'Devices', 'device_id'),
 		);
 	}
 
@@ -56,10 +59,12 @@ class CustomerDevices extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'customer_id' => 'Customer',
-			'device_id' => 'Device',
-			'status' => 'Status',
-			'created_at' => 'Created At',
+			'iso' => 'Iso',
+			'name' => 'Name',
+			'nicename' => 'Nicename',
+			'iso3' => 'Iso3',
+			'numcode' => 'Numcode',
+			'phonecode' => 'Phonecode',
 		);
 	}
 
@@ -81,11 +86,13 @@ class CustomerDevices extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('customer_id',$this->customer_id,true);
-		$criteria->compare('device_id',$this->device_id,true);
-		$criteria->compare('status',$this->status);
-		$criteria->compare('created_at',$this->created_at,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('iso',$this->iso,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('nicename',$this->nicename,true);
+		$criteria->compare('iso3',$this->iso3,true);
+		$criteria->compare('numcode',$this->numcode);
+		$criteria->compare('phonecode',$this->phonecode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -96,7 +103,7 @@ class CustomerDevices extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return CustomerDevices the static model class
+	 * @return Countries the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

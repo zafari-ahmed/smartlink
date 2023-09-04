@@ -17,6 +17,7 @@
  * @property string $current_user
  * @property string $unique_reference_id
  * @property string $billed_by
+ * @property string $domain_url
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
@@ -40,11 +41,11 @@ class Customers extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('legal_type_id, status', 'numerical', 'integerOnly'=>true),
-			array('name, incorporation_number, ntn_number, strn_number, email, password, allowed_user, current_user, unique_reference_id, billed_by', 'length', 'max'=>255),
+			array('name, incorporation_number, ntn_number, strn_number, email, password, allowed_user, current_user, billed_by, domain_url', 'length', 'max'=>255),
 			array('country_id, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, country_id, name, legal_type_id, incorporation_number, ntn_number, strn_number, email, password, allowed_user, current_user, unique_reference_id, billed_by, status, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, country_id, name, legal_type_id, incorporation_number, ntn_number, strn_number, email, password, allowed_user, current_user, unique_reference_id, billed_by, domain_url, status, created_at, updated_at', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,6 +57,8 @@ class Customers extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'country' => array(self::BELONGS_TO, 'Countries', 'country_id'),
+			'devices' => array(self::HAS_MANY, 'CustomerDevices', 'customer_id'),
 		);
 	}
 
@@ -78,6 +81,7 @@ class Customers extends CActiveRecord
 			'current_user' => 'Current User',
 			'unique_reference_id' => 'Unique Reference',
 			'billed_by' => 'Billed By',
+			'domain_url' => 'Domain Url',
 			'status' => 'Status',
 			'created_at' => 'Created At',
 			'updated_at' => 'Updated At',
@@ -115,6 +119,7 @@ class Customers extends CActiveRecord
 		$criteria->compare('current_user',$this->current_user,true);
 		$criteria->compare('unique_reference_id',$this->unique_reference_id,true);
 		$criteria->compare('billed_by',$this->billed_by,true);
+		$criteria->compare('domain_url',$this->domain_url,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);

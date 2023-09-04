@@ -13,66 +13,53 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <form role="form" method="POST" action="<?php echo Yii::app()->baseUrl?>/reference/save">
+                    <form role="form" method="POST" action="<?php echo Yii::app()->baseUrl?>/device/save">
                         <!-- <div class="col-lg-12"> -->
                             
                             <div class="form-group col-lg-5" style="padding-right: 0px;">
-                                <label>Legal Type</label>                                
-                                <select name="legal_type_id" id="legal_type_id" class="form-control">
-                                    <option value="">Please select Legal Type</option>
-                                    <option value="pvt_ltd_company">PVT Ltd Company</option>
-                                    <option value="sole_properiter_company">Sole Properiter Company</option>
-                                    <option value="indivisual_consultant">Indivisual Consultant</option>
+                                <label>Device Category</label>                                
+                                <select name="device_category" id="device_category" class="form-control">
+                                    <option value="">Please select Device Category</option>
+                                    <option value="basic">Basic Version</option>
+                                    <option value="advanced">Advanced Version</option>
                                 </select>
                             </div>
 
                             <div class="form-group col-lg-5" >
-                                <label>Account Name</label>
-                                <input class="form-control" name="account_name" id="account_name" placeholder="Account Name" required="">
+                                <label>Name</label>
+                                <input class="form-control" name="name" id="name" placeholder="Device Name" required="">
                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
                             </div>
 
                             <div class="form-group col-lg-4">
-                                <label>Incorporation Number</label>
-                                <input class="form-control" name="incorporation_number" id="incorporation_number" placeholder="Incorporation Number" required="">
+                                <label>Android Master Mac Address</label>
+                                <input class="form-control" name="android_master_mac_address" id="android_master_mac_address" placeholder="Android Master Mac Address" required="">
                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
                             </div>
 
                             <div class="form-group col-lg-4">
-                                <label>NTN Number</label>
-                                <input class="form-control" name="ntn_number" id="ntn_number" placeholder="NTN Number" required="" type="text">
+                                <label>PCB Controller Bluetooth Name</label>
+                                <input class="form-control" name="pcb_controller_bluetooth_name" id="pcb_controller_bluetooth_name" placeholder="Pcb Controller Bluetooth Name" required="" type="text">
                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
                             </div>
 
                             <div class="form-group col-lg-4">
-                                <label>STRN Number</label>
-                                <input class="form-control" name="strn_number" id="strn_number" placeholder="STRN Number" type="text">
+                                <label>Aynchronised Asset Code</label>
+                                <input class="form-control" name="synchronised_asset_code" id="synchronised_asset_code" placeholder="Aynchronised Asset Code" type="text">
                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
                             </div>
 
                             <div class="form-group col-lg-3">
-                                <label>Commision Percentage</label>
-                                <input class="form-control" id="set_commision_percentage" name="set_commision_percentage" placeholder="Commision Percentage" >
+                                <label>Installation Date</label>
+                                <input class="form-control calender" id="installation_date" name="installation_date" placeholder="Installation Date" >
                             </div>
 
                             <div class="form-group col-lg-3">
-                                <label>Account Username</label>
-                                <input class="form-control" id="reference_user_account" name="reference_user_account" placeholder="Account Username" >
-                            </div>
-                            <div class="form-group col-lg-3">
-                                <label>Account Password</label>
-                                <input class="form-control" id="reference_user_password" name="reference_user_password" placeholder="Account Password" >
-                            </div>
-
-                            <div class="form-group col-lg-3">
-                                <label>Bank Name</label>
-                                <input class="form-control" id="bank_name" name="bank_name" placeholder="Bank Name" >
-                            </div>
-                            <div class="form-group col-lg-3">
-                                <label>IBAN</label>
-                                <input class="form-control" id="iban" name="iban" placeholder="IBAN" >
+                                <label>Date Of Supply</label>
+                                <input class="form-control calender" id="date_of_supply" name="date_of_supply" placeholder="Date Of Supply" >
                             </div>
                             
+
                             <div class="col-lg-12">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>

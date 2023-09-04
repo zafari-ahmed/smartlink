@@ -287,7 +287,7 @@
                             <a href="<?php echo Yii::app()->baseUrl.'/dashboard'?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Customers<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Customers<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo Yii::app()->baseUrl.'/customer'?>">Manage Customer</a>
@@ -299,7 +299,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> References<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-retweet fa-fw"></i> References<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo Yii::app()->baseUrl.'/reference'?>">Manage References</a>
@@ -311,7 +311,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Devices<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-asterisk fa-fw"></i> Devices<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo Yii::app()->baseUrl.'/device'?>">Manage Devices</a>

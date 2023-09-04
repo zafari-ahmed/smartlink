@@ -16,13 +16,13 @@
                     <form role="form" method="POST" action="<?php echo Yii::app()->baseUrl?>/reference/save">
                         <!-- <div class="col-lg-12"> -->
                             
-                            <div class="form-group col-lg-5" style="padding-right: 0px;">
+                            <div class="form-group col-lg-3" style="padding-right: 0px;">
                                 <label>Legal Type</label>                                
-                                <select name="legal_type_id" id="legal_type_id" class="form-control">
-                                    <option value="">Please select Legal Type</option>
-                                    <option value="pvt_ltd_company">PVT Ltd Company</option>
-                                    <option value="sole_properiter_company">Sole Properiter Company</option>
-                                    <option value="indivisual_consultant">Indivisual Consultant</option>
+                                <select name="legal_type_id" id="legal_type_id" class="form-control" required>
+                                    <option value="">Please select legal type</option>
+                                    <?php foreach($legalTypes as $legalType):?>
+                                        <option value="<?php echo $legalType->id?>"><?php echo $legalType->type?></option>
+                                    <?php endforeach;?>
                                 </select>
                             </div>
 
@@ -61,7 +61,7 @@
                             </div>
                             <div class="form-group col-lg-3">
                                 <label>Account Password</label>
-                                <input class="form-control" id="reference_user_password" name="reference_user_password" placeholder="Account Password" >
+                                <input class="form-control" id="reference_user_password" name="reference_user_password" placeholder="Account Password" type="password">
                             </div>
 
                             <div class="form-group col-lg-3">
