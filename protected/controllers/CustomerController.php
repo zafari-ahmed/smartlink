@@ -53,13 +53,21 @@ class CustomerController extends Controller
 
 	public function actionsaveDevices(){
 		if($_POST['device_id']){
-			$customer = new CustomerDevices;
-			$customer->attributes = $_POST;
-			$customer->status = 1;
-			$customer->created_at =  date('Y-m-d H:i:s');
-			$customer->save(false);
-			Yii::app()->user->setFlash('success','Customer Device added successfully.');
-            $this->redirect(Yii::app()->baseUrl.'/customer/customerdevice/'.$_POST['customer_id']);
+			$deviceId = $_POST['device_id'];
+			$customerId = $_POST['customer_id'];
+			if(CustomerDevices::model()->count("device_id = $deviceId AND customer_id = $customerId") > 0){
+				Yii::app()->user->setFlash('success','Device already added in customer portal.');
+	            $this->redirect(Yii::app()->baseUrl.'/customer/customerdevice/'.$_POST['customer_id']);	
+			} else{
+				$customer = new CustomerDevices;
+				$customer->attributes = $_POST;
+				$customer->status = 1;
+				$customer->created_at =  date('Y-m-d H:i:s');
+				$customer->save(false);
+				Yii::app()->user->setFlash('success','Customer Device added successfully.');
+	            $this->redirect(Yii::app()->baseUrl.'/customer/customerdevice/'.$_POST['customer_id']);	
+			}
+			
 		}
 	}
 

@@ -4,13 +4,18 @@ class ReferenceController extends Controller
 {
 	public function actionAdd()
 	{
+		$data['countries'] = Countries::model()->findAll();
 		$data['legalTypes'] = LegalTypes::model()->findAll();
 		$this->render('add',$data);
 	}
 
-	public function actionEdit()
+	public function actionEdit($id)
 	{
-		$this->render('edit');
+
+		$data['reference'] = References::model()->findByPk($id);
+		$data['countries'] = Countries::model()->findAll();
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$this->render('edit',$data);
 	}
 
 	public function actionIndex()
@@ -36,7 +41,16 @@ class ReferenceController extends Controller
 
 	public function actionUpdate()
 	{
-		$this->render('update');
+		if($_POST['id']){
+			$customer = References::model()->findByPk($_POST['id']);
+			$customer->attributes = $_POST;
+			$customer->status = 1;
+			$customer->created_at =  date('Y-m-d H:i:s');
+			$customer->updated_at =  date('Y-m-d H:i:s');
+			$customer->save(false);
+			Yii::app()->user->setFlash('success','Reference updated successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/reference');
+		}
 	}
 
 	// Uncomment the following methods and override them if needed

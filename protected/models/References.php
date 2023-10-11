@@ -20,6 +20,9 @@
  * @property integer $status
  * @property string $created_at
  * @property string $updated_at
+ * @property integer $country_id
+ * @property string $address
+ * @property string $contact_number
  */
 class References extends CActiveRecord
 {
@@ -39,12 +42,12 @@ class References extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('legal_type_id, status', 'numerical', 'integerOnly'=>true),
-			array('account_name, incorporation_number, ntn_number, strn_number, set_commision_percentage, reference_user_account, reference_user_password, bank_name, iban, devices_sold, revenue', 'length', 'max'=>255),
+			array('legal_type_id, status, country_id', 'numerical', 'integerOnly'=>true),
+			array('account_name, incorporation_number, ntn_number, strn_number, set_commision_percentage, reference_user_account, reference_user_password, bank_name, iban, devices_sold, revenue, address, contact_number', 'length', 'max'=>255),
 			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, account_name, legal_type_id, incorporation_number, ntn_number, strn_number, set_commision_percentage, reference_user_account, reference_user_password, bank_name, iban, devices_sold, revenue, status, created_at, updated_at', 'safe', 'on'=>'search'),
+			array('id, account_name, legal_type_id, incorporation_number, ntn_number, strn_number, set_commision_percentage, reference_user_account, reference_user_password, bank_name, iban, devices_sold, revenue, status, created_at, updated_at, country_id, address, contact_number', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +60,7 @@ class References extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'legalType' => array(self::BELONGS_TO, 'LegalTypes', 'legal_type_id'),
+			'country' => array(self::BELONGS_TO, 'Countries', 'country_id'),
 		);
 	}
 
@@ -82,6 +86,9 @@ class References extends CActiveRecord
 			'status' => 'Status',
 			'created_at' => 'Created At',
 			'updated_at' => 'Updated At',
+			'country_id' => 'Country',
+			'address' => 'Address',
+			'contact_number' => 'Contact Number',
 		);
 	}
 
@@ -119,6 +126,9 @@ class References extends CActiveRecord
 		$criteria->compare('status',$this->status);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
+		$criteria->compare('country_id',$this->country_id);
+		$criteria->compare('address',$this->address,true);
+		$criteria->compare('contact_number',$this->contact_number,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
