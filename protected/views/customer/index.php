@@ -37,6 +37,7 @@
                             <th>Country</th>
                             <th>Login Email</th>
                             <th>Devices</th>
+                            <th>Domain</th>
                             <th>Created At</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -52,6 +53,7 @@
                                 <td><?php echo @$customer->country->name ?></td>
                                 <td><?php echo @$customer->email ?></td>
                                 <td><?php echo count(@$customer->devices)?></td>
+                                <td><?php echo @$customer->domain_url?></td>
                                 <td><?php echo date('d M, Y',strtotime(@$customer->created_at))?></td>    
                                 <td>
                                 	<?php echo ($customer->status==0)?'<span class="label label-danger">De-Activated</span>':'<span class="label label-success">Activated</span>'?>&nbsp;

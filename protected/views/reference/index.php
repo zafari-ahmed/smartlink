@@ -34,8 +34,8 @@
                             <th>Account</th>
                             <th>Legal Type</th>
                             <th>Incorporation Number</th>
-                            <th>NTN Number</th>
-                            <th>STRN Number</th>
+                            <th>Local Tax ID Number</th>
+                            <th>Country</th>
                             <th>Percentage</th>
                             <th>User Account</th>
                             <th>Created At</th>
@@ -50,12 +50,13 @@
                                 <td><?php echo @$reference->legalType->type?></td>
                                 <td><?php echo @$reference->incorporation_number?></td>
                                 <td><?php echo @$reference->ntn_number?></td>
-                                <td><?php echo @$reference->strn_number?></td>
+                                <td><?php echo @$reference->country->name?></td>
                                 <td><?php echo @$reference->set_commision_percentage ?></td>
                                 <td><?php echo @$reference->reference_user_account ?></td>
                                 <td><?php echo date('d M, Y',strtotime(@$reference->created_at))?></td>    
                                 <td>
                                 	<?php echo ($reference->status==0)?'<span class="label label-danger">De-Activated</span>':'<span class="label label-success">Activated</span>'?>&nbsp;
+                                    <a href="<?php echo Yii::app()->baseUrl?>/reference/edit/<?php echo $reference->id?>"><span class="aLink label label-success">Edit</span></a>&nbsp;
                                 	<a href="<?php echo Yii::app()->baseUrl?>/reference/view/<?php echo $reference->id?>"><span class="aLink label label-info">View</span></a>&nbsp;
                                 </td>                            
 	                        </tr>
