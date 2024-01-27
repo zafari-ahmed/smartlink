@@ -19,6 +19,17 @@ class CustomerController extends Controller
 		$this->render('edit',$data);
 	}
 
+
+	public function actionView($id)
+	{
+		$data['countries'] = Countries::model()->findAll();
+		$data['customer'] = Customers::model()->findByPk($id);
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$data['references'] = References::model()->findAll();
+		$data['customerDevices'] = CustomerDevices::model()->findAll("customer_id = ".$id);
+		$this->render('view',$data);
+	}
+
 	public function actionIndex()
 	{
 		$data['customers'] = Customers::model()->findAll();

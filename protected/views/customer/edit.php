@@ -21,7 +21,7 @@
                                 <select name="country_id" id="country_id" class="form-control">
                                     <option value="">Please select country</option>
                                     <?php foreach($countries as $country):?>
-                                        <option value="<?php echo $country->id?>"><?php echo $country->name?></option>
+                                        <option value="<?php echo $country->id?>" <?php echo ($country->id==$customer->country_id)?'selected':''?>><?php echo $country->name?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
@@ -30,9 +30,9 @@
                                 <label>Legal Type</label>                                
                                 <select name="legal_type_id" id="legal_type_id" class="form-control">
                                     <option value="">Please select Legal Type</option>
-                                    <option value="1">PVT Ltd Company</option>
-                                    <option value="2">Sole Properiter Company</option>
-                                    <option value="3">Indivisual Consultant</option>
+                                    <option value="1" <?php echo ($customer->legal_type_id==1)?'selected':''?>>PVT Ltd Company</option>
+                                    <option value="2" <?php echo ($customer->legal_type_id==2)?'selected':''?>>Sole Properiter Company</option>
+                                    <option value="3" <?php echo ($customer->legal_type_id==3)?'selected':''?>>Indivisual Consultant</option>
                                 </select>
                             </div>
 

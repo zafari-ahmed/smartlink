@@ -18,6 +18,14 @@ class ReferenceController extends Controller
 		$this->render('edit',$data);
 	}
 
+	public function actionView($id)
+	{
+		$data['reference'] = References::model()->findByPk($id);
+		$data['countries'] = Countries::model()->findAll();
+		$data['legalTypes'] = LegalTypes::model()->findAll();
+		$this->render('view',$data);
+	}
+
 	public function actionIndex()
 	{
 		$data['references'] = References::model()->findAll();

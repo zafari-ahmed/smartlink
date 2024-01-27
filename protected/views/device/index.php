@@ -53,6 +53,7 @@
                                 <td><?php echo date('d M, Y',strtotime(@$device->date_of_supply))?></td>
                                 <td><?php echo date('d M, Y',strtotime(@$device->created_at))?></td>    
                                 <td><?php echo ($device->status==0)?'<span class="label label-danger">De-Activated</span>':'<span class="label label-success">Activated</span>'?>&nbsp;
+                                    <a href="<?php echo Yii::app()->baseUrl?>/device/edit/<?php echo $device->id?>"><span class="aLink label label-success">Edit</span></a>&nbsp;
                                 	<a href="<?php echo Yii::app()->baseUrl?>/device/view/<?php echo $device->id?>"><span class="aLink label label-info">View</span></a></td>
                             
 	                        </tr>

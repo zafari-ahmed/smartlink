@@ -7,9 +7,17 @@ class DeviceController extends Controller
 		$this->render('add');
 	}
 
-	public function actionEdit()
+	public function actionEdit($id)
 	{
-		$this->render('edit');
+		$data['device'] = Devices::model()->findByPk($id);
+		$this->render('edit',$data);
+	}
+
+
+	public function actionView($id)
+	{
+		$data['device'] = Devices::model()->findByPk($id);
+		$this->render('view',$data);
 	}
 
 	public function actionIndex()
@@ -35,7 +43,13 @@ class DeviceController extends Controller
 
 	public function actionUpdate()
 	{
-		$this->render('update');
+		if($_POST['id']){
+			$Devices = Devices::model()->findByPk($_POST['id']);
+			$Devices->attributes = $_POST;
+			$Devices->save(false);
+			Yii::app()->user->setFlash('success','Device updated successfully.');
+            $this->redirect(Yii::app()->baseUrl.'/device');
+		}
 	}
 
 	// Uncomment the following methods and override them if needed
