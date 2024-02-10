@@ -31,6 +31,7 @@
                             <!-- <th>Block #</th>
                             <th>Plot Type</th> -->
                             <th class="hide">#</th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>NTN Number</th>
                             <th>STRN Number</th>
@@ -47,6 +48,7 @@
                        <?php if($customers){ foreach($customers as $customer):?>
                        		<tr>
 	                            <td class="hidden"><?php echo $customer->id?></td>
+                                <td><?php echo $this->UniqueID(@$customer->id,'CLNT')?></td>
                                 <td><?php echo @$customer->name?></td>
                                 <td><?php echo @$customer->ntn_number?></td>
                                 <td><?php echo @$customer->strn_number?></td>

@@ -80,6 +80,11 @@ class Controller extends CController
 	}
 
 
+	public function UniqueID($id,$initial='',$leadingZero=6){
+		return ($initial.'-'.sprintf('%0'.$leadingZero.'d', $id));
+	}
+
+
 	public function Percentage($total,$percentage,$view = 1){
 		if($view == 1){
 			return number_format((@$percentage / 100) * @$total);

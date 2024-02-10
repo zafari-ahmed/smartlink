@@ -31,6 +31,7 @@
                             <!-- <th>Block #</th>
                             <th>Plot Type</th> -->
                             <th class="hide">#</th>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Mac Address</th>
                             <th>Bluetooth Name</th>
@@ -45,6 +46,7 @@
                        <?php if($devices){ foreach($devices as $device):?>
                        		<tr>
 	                            <td class="hidden"><?php echo $device->id?></td>
+                                <td><?php echo $this->UniqueID(@$device->id,'FL')?></td>
                                 <td><?php echo @$device->name?></td>
                                 <td><?php echo @$device->android_master_mac_address?></td>
                                 <td><?php echo @$device->pcb_controller_bluetooth_name?></td>

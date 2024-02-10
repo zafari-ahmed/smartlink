@@ -31,6 +31,7 @@
                             <!-- <th>Block #</th>
                             <th>Plot Type</th> -->
                             <th class="hide">#</th>
+                            <th>ID</th>
                             <th>Account</th>
                             <th>Legal Type</th>
                             <th>Incorporation Number</th>
@@ -46,6 +47,7 @@
                        <?php if($references){ foreach($references as $reference):?>
                        		<tr>
 	                            <td class="hidden"><?php echo $reference->id?></td>
+                                <td><?php echo $this->UniqueID(@$reference->id,'REF')?></td>
                                 <td><?php echo @$reference->account_name?></td>
                                 <td><?php echo @$reference->legalType->type?></td>
                                 <td><?php echo @$reference->incorporation_number?></td>
